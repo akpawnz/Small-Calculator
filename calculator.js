@@ -1,7 +1,5 @@
-/* global document */
+/* global document, $ */
 
-var CE = document.getElementById("bCE");
-var AC = document.getElementById("bAC");
 var result = document.getElementById("b=");
 var quote = document.getElementById("b.");
 
@@ -116,16 +114,16 @@ quote.onclick = function () {
     }
 };
 
-CE.onclick = function () {
+$('#CE').on("click", function(){
     calculator.out = "";
-    calculator.display("");
-};
+    calculator.display("0");
+});
 
-AC.onclick = function () {
-    CE.onclick();
+$('#AC').on("click" ,function () {
+    $('#CE').trigger("click");
     calculator.total = null;
     calculator.calculationId = 0;
-};
+});
 
 
 
